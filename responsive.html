@@ -2,86 +2,261 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Magaiwa Responsive Portfolio</title>
-  <link rel="stylesheet" href="responsive.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Magaiwa Mohoria - Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-color: #0f172a;
+      --text-color: #f8fafc;
+      --accent-color: #38bdf8;
+      --card-color: #1e293b;
+      --hover-color: #0ea5e9;
+    }
+
+    body.light-theme {
+      --bg-color: #f8fafc;
+      --text-color: #0f172a;
+      --card-color: #e2e8f0;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background: var(--card-color);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      color: var(--accent-color);
+    }
+
+    nav a {
+      margin: 0 1rem;
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--accent-color);
+    }
+
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+    }
+
+    .switch {
+      width: 40px;
+      height: 20px;
+      background: #999;
+      border-radius: 20px;
+      position: relative;
+      margin-left: 0.5rem;
+      cursor: pointer;
+    }
+
+    .switch::before {
+      content: '';
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background: white;
+      border-radius: 50%;
+      top: 1px;
+      left: 1px;
+      transition: 0.3s;
+    }
+
+    #theme-switch:checked + .switch::before {
+      left: 21px;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .section {
+      background: var(--card-color);
+      padding: 2rem;
+      border-radius: 1rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    .intro {
+      text-align: center;
+    }
+
+    .intro img {
+      max-width: 150px;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+    .intro h2 {
+      margin-top: 1rem;
+      font-size: 1.8rem;
+    }
+
+    .card h2 {
+      color: var(--accent-color);
+    }
+
+    .card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .card ul li::before {
+      content: '\2022';
+      color: var(--accent-color);
+      margin-right: 0.5rem;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 1rem;
+      border: none;
+      margin-bottom: 1rem;
+      border-radius: 0.5rem;
+      background: #334155;
+      color: var(--text-color);
+    }
+
+    form button {
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 0.5rem;
+      background: var(--accent-color);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background: var(--hover-color);
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
 </head>
 <body>
-  <input type="checkbox" id="menu-toggle" />
-
-  <!-- Header with Logo Only -->
   <header>
-    <label for="menu-toggle" class="menu-icon"><i class="fas fa-bars"></i></label>
-    <div class="logo">Magaiwa</div>
+    <h1>Magaiwa</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#languages">Languages</a>
+      <a href="#education">Education</a>
+      <a href="#interests">Interests</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="theme-toggle">
+      <label>
+        <input type="checkbox" id="theme-switch">
+        <span class="switch"></span>
+      </label>
+    </div>
   </header>
 
-  <div class="layout">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <label for="menu-toggle" class="close-icon"><i class="fas fa-times"></i></label>
-      <form class="search-form">
-        <input type="text" placeholder="Search..." />
-        <button type="submit">Go</button>
-      </form>
-      <ul class="sidebar-links">
-        <li><a href="#home">🏠 Home</a></li>
-        <li><a href="#about">👤 About</a></li>
-        <li><a href="#services">💼 Services</a></li>
-        <li><a href="#contact">📞 Contact</a></li>
+  <main>
+    <section id="home" class="section intro">
+      <img src="IMG_4929.JPG" alt="Magaiwa">
+      <h2>Magaiwa Mohoria</h2>
+      <p>3D Artist & Tech Enthusiast</p>
+    </section>
+
+    <section id="about" class="section card">
+      <h2>About Me</h2>
+      <p>I’m an IT student passionate about building digital experiences, learning new technologies, and solving real-world problems.</p>
+    </section>
+
+    <section id="languages" class="section card">
+      <h2>Programming Languages</h2>
+      <ul>
+        <li>HTML5</li>
+        <li>CSS3</li>
+        <li>JavaScript</li>
+        <li>Python</li>
       </ul>
-    </aside>
+    </section>
 
-    <!-- Main Content -->
-    <main class="main-content">
-      <!-- Hero Section -->
-      <section class="hero" id="home">
-        <h1>Hello, I'm Magaiwa Mohoria</h1>
-        <p>I build responsive and user-friendly websites.</p>
-        <img src="bali.jpg" alt="Hero image" class="hero-img">
-      </section>
+    <section id="education" class="section card">
+      <h2>Educational Background</h2>
+      <p>Bachelor of Business Information Technology, Graduating Dec 2026</p>
+      <a href="resume.pdf" download>Download My CV</a>
+    </section>
 
-      <!-- About Section -->
-      <section class="about" id="about">
-        <h2>About Me</h2>
-        <div class="about-inner">
-          <img src="IMG_4929.JPG" alt="Profile photo" class="about-img">
-          <p>I'm a creative web developer and designer currently pursuing a Bachelor's in Business Information Technology. I specialize in clean, responsive, and accessible websites.</p>
-        </div>
-        <a href="files/Magaiwa_CV.pdf" class="w3-button w3-blue w3-margin-top download-btn" download>
-          <i class="fas fa-download"></i> Download My Resume
-        </a>
-      </section>
+    <section id="interests" class="section card">
+      <h2>Interests</h2>
+      <p>I'm excited by 3D modeling, system engineering, and data analytics. I enjoy creating meaningful, interactive tech experiences.</p>
+    </section>
 
-      <!-- Services Section -->
-      <section class="services" id="services">
-        <h2>My Services</h2>
-        <div class="service-boxes">
-          <div class="service">
-            <img src="figma.jpg" alt="Web Dev icon" class="service-img">
-            <h3>Web Development</h3>
-            <p>Modern and responsive websites using HTML, CSS, and JavaScript.</p>
-          </div>
-          <div class="service">
-            <img src="web.jpg" alt="UI/UX icon" class="service-img">
-            <h3>UI/UX Design</h3>
-            <p>User-friendly and visually appealing interface design.</p>
-          </div>
-          <div class="service">
-            <img src="x.jpg" alt="Maintenance icon" class="service-img">
-            <h3>Maintenance</h3>
-            <p>Keep your website running smoothly with regular updates and support.</p>
-          </div>
-        </div>
-      </section>
-    </main>
-  </div>
+    <section id="projects" class="section card">
+      <h2>Projects</h2>
+      <div class="project">
+        <h3>News Feed App</h3>
+        <p>A Django-based platform for sharing and viewing updates. Used SQLite, HTML, CSS, JS.</p>
+        <a href="#">View Project</a>
+      </div>
+    </section>
 
-  <!-- Footer -->
-  <footer id="contact">
-    <p>&copy; 2025 Magaiwa Mohoria. All rights reserved.</p>
-    <p>Email: magaiwa@example.com | Phone: +254700123456</p>
-  </footer>
+    <section id="contact" class="section card">
+      <h2>Contact Me</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    const themeSwitch = document.getElementById('theme-switch');
+    const body = document.body;
+    themeSwitch.addEventListener('change', () => {
+      body.classList.toggle('light-theme');
+      localStorage.setItem('theme', body.classList.contains('light-theme') ? 'light' : 'dark');
+    });
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      body.classList.add('light-theme');
+      themeSwitch.checked = true;
+    }
+  </script>
 </body>
 </html>
