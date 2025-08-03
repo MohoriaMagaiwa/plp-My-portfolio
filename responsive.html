@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Magaiwa Responsive Portfolio</title>
+  <link rel="stylesheet" href="responsive.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <input type="checkbox" id="menu-toggle" />
+
+  <!-- Header with Logo Only -->
+  <header>
+    <label for="menu-toggle" class="menu-icon"><i class="fas fa-bars"></i></label>
+    <div class="logo">Magaiwa</div>
+  </header>
+
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <label for="menu-toggle" class="close-icon"><i class="fas fa-times"></i></label>
+      <form class="search-form">
+        <input type="text" placeholder="Search..." />
+        <button type="submit">Go</button>
+      </form>
+      <ul class="sidebar-links">
+        <li><a href="#home">🏠 Home</a></li>
+        <li><a href="#about">👤 About</a></li>
+        <li><a href="#services">💼 Services</a></li>
+        <li><a href="#contact">📞 Contact</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Hero Section -->
+      <section class="hero" id="home">
+        <h1>Hello, I'm Magaiwa Mohoria</h1>
+        <p>I build responsive and user-friendly websites.</p>
+        <img src="bali.jpg" alt="Hero image" class="hero-img">
+      </section>
+
+      <!-- About Section -->
+      <section class="about" id="about">
+        <h2>About Me</h2>
+        <div class="about-inner">
+          <img src="IMG_4929.JPG" alt="Profile photo" class="about-img">
+          <p>I'm a creative web developer and designer currently pursuing a Bachelor's in Business Information Technology. I specialize in clean, responsive, and accessible websites.</p>
+        </div>
+        <a href="files/Magaiwa_CV.pdf" class="w3-button w3-blue w3-margin-top download-btn" download>
+          <i class="fas fa-download"></i> Download My Resume
+        </a>
+      </section>
+
+      <!-- Services Section -->
+      <section class="services" id="services">
+        <h2>My Services</h2>
+        <div class="service-boxes">
+          <div class="service">
+            <img src="figma.jpg" alt="Web Dev icon" class="service-img">
+            <h3>Web Development</h3>
+            <p>Modern and responsive websites using HTML, CSS, and JavaScript.</p>
+          </div>
+          <div class="service">
+            <img src="web.jpg" alt="UI/UX icon" class="service-img">
+            <h3>UI/UX Design</h3>
+            <p>User-friendly and visually appealing interface design.</p>
+          </div>
+          <div class="service">
+            <img src="x.jpg" alt="Maintenance icon" class="service-img">
+            <h3>Maintenance</h3>
+            <p>Keep your website running smoothly with regular updates and support.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <p>&copy; 2025 Magaiwa Mohoria. All rights reserved.</p>
+    <p>Email: magaiwa@example.com | Phone: +254700123456</p>
+  </footer>
+</body>
+</html>

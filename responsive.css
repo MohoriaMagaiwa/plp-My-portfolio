@@ -1,0 +1,231 @@
+/* Base & Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Varela Round', sans-serif;
+}
+body {
+  background: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Hero Image */
+.hero-img {
+  width: 100%;
+  max-height: 350px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid #eee;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+/* About Image */
+.about-img {
+  width: 300px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 2px solid #eee;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-right: 20px;
+}
+
+/* About Section Layout */
+.about-inner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+/* Make all images responsive */
+.service-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+/* Hide the checkbox */
+#menu-toggle {
+  display: none;
+}
+
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #222;
+  color: #fff;
+  padding: 15px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.menu-icon, .close-icon {
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #fff;
+}
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.nav {
+  display: flex;
+  gap: 1rem;
+}
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  transition: color .3s;
+}
+.nav a:hover {
+  color: #00bcd4;
+}
+
+/* Layout container: sidebar + content */
+.layout {
+  display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+  background: #f1f1f1;
+  width: 250px;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+  position: fixed;
+  top: 60px; /* header height */
+  bottom: 0;
+  left: -250px; /* hidden by default */
+  overflow-y: auto;
+  transition: left .3s;
+}
+.sidebar .close-icon {
+  display: none;
+  margin-bottom: 20px;
+}
+
+/* When checkbox is checked, show sidebar */
+#menu-toggle:checked ~ .layout .sidebar {
+  left: 0;
+}
+/* Show close icon inside sidebar on toggle */
+#menu-toggle:checked ~ .layout .sidebar .close-icon {
+  display: block;
+}
+
+/* Main content shift when sidebar open */
+#menu-toggle:checked ~ .layout .main-content {
+  margin-left: 250px;
+}
+
+/* Search form */
+.search-form {
+  display: flex;
+  margin-bottom: 20px;
+}
+.search-form input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+}
+.search-form button {
+  padding: 8px 12px;
+  border: none;
+  background: #00bcd4;
+  color: #fff;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+/* Sidebar links */
+.sidebar-links {
+  list-style: none;
+}
+.sidebar-links li {
+  margin: 10px 0;
+}
+.sidebar-links a {
+  text-decoration: none;
+  color: #333;
+  transition: color .3s;
+}
+.sidebar-links a:hover {
+  color: #00bcd4;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  margin-left: 0;
+  transition: margin-left .3s;
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+              url('https://via.placeholder.com/1200x500') no-repeat center/cover;
+  color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+/* Sections */
+.about, .services {
+  background: #fff;
+  padding: 40px 20px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+.services {
+  background: #f4f4f4;
+}
+
+/* Service boxes */
+.service-boxes {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.service {
+  background: #fff;
+  padding: 20px;
+  width: 280px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.05);
+}
+
+/* Footer */
+footer {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  /* Hide desktop nav, show only menu icon */
+  .nav { display: none; }
+
+  /* Sidebar becomes overlay */
+  .sidebar {
+    top: 50px;
+    height: calc(100% - 50px);
+  }
+
+  /* Main-content full width */
+  .main-content {
+    margin-left: 0 !important;
+  }
+}
